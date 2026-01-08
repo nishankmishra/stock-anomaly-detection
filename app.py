@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 from sklearn.ensemble import IsolationForest
 
 
-st.title("📈 Stock Market Anomaly Detection Dashboard")
+st.title("📈 Stock Market Anomaly Detection ")
 
 st.sidebar.header("Settings")
 ticker = st.sidebar.text_input("Stock Symbol", "AAPL")
