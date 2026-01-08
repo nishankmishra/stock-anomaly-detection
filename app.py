@@ -18,9 +18,13 @@ contamination = st.sidebar.slider("Anomaly Sensitivity", 0.01, 0.1, 0.02)
 
 @st.cache_data
 def load_data(ticker, start, end):
-    data = yf.download(ticker, start=start, end=end)
-    data.reset_index(inplace=True)
-    return data
+    try:
+        data = yf.download(ticker, start=start, end=end)
+        data.reset_index(inplace=True)
+        return data
+    except Exception as e:
+        st.error("Failed to load stock data")
+        st.stop()
 
 data = load_data(ticker, start_date, end_date)
 
